@@ -27,7 +27,6 @@ router.get('/',async(req,res,next)=>{
 		var test= getDir(rootDir + "/public/facilities/")
 		
 		console.log(test)
-		console.log(req.session.userstat);
 		res.render(path.join('./homepage'),{numFac:test.length, facilities:test});
 
     }catch (e){
