@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>Capstone Project</title>
+<title>IT God's Eye</title>
+
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -24,17 +25,14 @@
 	<div id="myModal" class="modal" style="display:none">
 	<!-- Modal content -->
 	<div class="modal-content animate">
-	<form id="login" action="authenticate" method="POST">
-		<label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="username" required>
-	<script>
-	window.onload=function(){
-	document.getElementById('fromURL').value=document.location.pathname;
-	}
-	</script>
-	<input type="hidden" id="fromURL" name="fromURL" value="">
+	<form id="addAsset" action="addAsset" method="POST">
+		<label for="dnsname"><b>DNS Name</b></label>
+    <input type="text" placeholder="Enter DNS name" name="dnsname" required><br>
+	<input type="hidden" id="elX" name="elX" value="">
+	<input type="hidden" id="elY" name="elY" value="">
+	<input type="hidden" id="facility" name="facility" value="<%=title%>">
 	
-    <button type="submit" style="margin-left:30px;">Login</button>
+    <button type="submit" style="margin-left:30px;">Add Asset</button>
 	</form>
 	</div>
 	</div>
