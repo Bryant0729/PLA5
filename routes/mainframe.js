@@ -39,10 +39,8 @@ router.get('/',async(req,res,next)=>{
 router.get('/facilities/*',async(req,res,next)=>{
     try{
 		var p=(req.url).split('/')[2];
-		
-		console.log(req.session.userstat);
 		if( (req.url).split('/')[3]== "report"){
-			res.render(path.join('./facility/facility'),{loggedin:req.session.userstat,username:req.session.username,title:p});	
+			res.render(path.join('./facility/facility'),{title:p});	
 		}
 		if( (req.url).split('/')[3]== "blueprint"){
 
@@ -52,7 +50,7 @@ router.get('/facilities/*',async(req,res,next)=>{
 			console.log(tempassets)
 			res.render(path.join('./facility/blueprint'),{assets:tempassets,title:p});	
 		}
-		res.render(path.join('./facility/facility'),{loggedin:req.session.userstat,username:req.session.username, title:p});
+		res.render(path.join('./facility/facility'),{title:p});
 
     }catch (e){
         next(e);
