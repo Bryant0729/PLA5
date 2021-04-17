@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>IT God's Eye</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,400,300' type='text/css' rel='stylesheet' />
+<link href='/css/style.css' type='text/css' rel='stylesheet' />
+ 
+</head>
+<body>
+	<div id="bp" style="position:relative;">
+	<img id="blueprint" style="position:absolute; top:0;left:0;" src="blueprint.png">
+	<div id="assetLayer" style="position:relative;">
+		
+	</div>
+	
+	</div>
+<script>
+	$("#blueprint").click(function(event){
+		console.log("clientX: "+event.clientX+" - client Y: "+event.clientY);
+		console.log($(event.target));
+		 var asset= document.createElement("BUTTON");
+		 asset.style.position="absolute";
+		 asset.innerHTML="TEXT";
+		 asset.style.top=event.clientY+"px";
+		 asset.style.left= event.clientX+"px";
+		 var bp= document.getElementById("assetLayer");
+		 bp.appendChild(asset);
+		 
+		 var modal=document.getElementById("myModal")
+		 modal.style.display="block"
+	});
+
+</script>
+</body>
+
+
+</html>

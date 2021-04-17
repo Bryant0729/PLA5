@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>Capstone Project</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!-- font awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,400,300' type='text/css' rel='stylesheet' />
+<link href='/css/style.css' type='text/css' rel='stylesheet' />
+
+</head>
+<% include ./newheader %>
+<body>
+<div class="container-fluid">
+  <div class = "row card-container" >
+    <div class = "col-xs-6 text-center">
+	<form id="selFac" action="selectFacility" method="POST">
+      <label for "facilities">Choose Facility:</label>
+	  <select name="facilities" id="facilities">
+	  <%for( var i=0;i<numFac;i++){%>
+		<option id="<%=facilities[i].name%>"><%=facilities[i].name%></td>
+      <%}%>
+	  </select>
+	  <button type="submit" style="margin-left:30px;">Go</button>
+    </div>
+    </div>
+   </div>
+</div>
+</body>
+<% include ./newfooter %>
+</html>
