@@ -291,7 +291,7 @@ video{
 	height:30%
 }
 
-.asset{
+.Healthy{
   background-color: #4CAF50;
   cursor: move;
   z-index: 10;
@@ -299,6 +299,45 @@ video{
   height: 25px;
   width: 25px;
   border-radius: 50%;
-  border: 1px solid #4CAF50;
-  
+  border: 1px solid #4CAF50; 
+}
+.UnHealthy{
+  background-color: #F6FF33;
+  cursor: move;
+  z-index: 10;
+  display:block;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: 1px solid #F6FF33; 
+}
+.Offline{
+  background-color: #FF3333;
+  cursor: move;
+  z-index: 10;
+  display:block;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: 1px solid #FF3333; 
+
+}
+
+@keyframes glowing {
+        0% {
+          background-color: #F40000;
+          box-shadow: 0 0 5px #F40000;
+        }
+        50% {
+          background-color: #FF3333;
+          box-shadow: 0 0 20px #FF3333;
+        }
+        100% {
+          background-color: #F40000;
+          box-shadow: 0 0 5px #F40000;
+        }
+      }
+
+.Offline{
+   animation: glowing 1300ms infinite;
 }

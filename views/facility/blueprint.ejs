@@ -66,7 +66,7 @@ function dragElement(elmnt) {
 	<img id="blueprint" style="position:absolute; top:0;left:0;" src="blueprint.png">
 	<div id="assetLayer" style="position:relative;">
 		<% for (var i = 0; i < assets.length; i++) { %>
-			<button class="asset" id="<%=assets[i].name%>" title="<%=assets[i].name%>" style="position:absolute; top:<%=assets[i].y%>; left:<%=assets[i].x%>;" onclick="displayAsset(<%=assets[i].name%>);"></button>
+			<button class="<%=assets[i].state%>" id="<%=assets[i].name%>" title="<%=assets[i].name%>" style="position:absolute; top:<%=assets[i].y%>; left:<%=assets[i].x%>;" onclick="displayAsset(<%=assets[i].name%>);"></button>
 			<script>dragElement(document.getElementById("<%=assets[i].name%>"));</script>
 		<% } %>
 	</div>
