@@ -291,3 +291,14 @@ video{
 	height:30%
 }
 
+.asset{
+  background-color: #4CAF50;
+  cursor: move;
+  z-index: 10;
+  display:block;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: 1px solid #4CAF50;
+  
+}

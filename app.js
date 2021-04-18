@@ -9,8 +9,9 @@ var logger = require('morgan');
 var bodyParser= require("body-parser");
 const uuid = require('uuid/v4');
 
-var mainframe = require(__dirname + '/routes/mainframe.js');
 global.rootDir = __dirname;
+var mainframe = require(__dirname + '/routes/mainframe.js');
+
 
 const app = express();
 const server=require('http').createServer(app);
