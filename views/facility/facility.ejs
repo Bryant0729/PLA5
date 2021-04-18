@@ -23,18 +23,27 @@
 <body>
 <div class = "container-fluid">
 	<div id="myModal" class="modal" style="display:none">
-	<!-- Modal content -->
-	<div class="modal-content animate">
-	<form id="addAsset" action="addAsset" method="POST">
-		<label for="dnsname"><b>DNS Name</b></label>
-    <input type="text" placeholder="Enter DNS name" name="dnsname" required><br>
-	<input type="hidden" id="elX" name="elX" value="">
-	<input type="hidden" id="elY" name="elY" value="">
-	<input type="hidden" id="facility" name="facility" value="<%=title%>">
-	
-    <button type="submit" style="margin-left:30px;">Add Asset</button>
-	</form>
+		<!-- Modal content -->
+		<div class="modal-content animate">
+			<form id="addAsset" action="addAsset" method="POST">
+			<label for="dnsname"><b>DNS Name</b></label>
+			<input type="text" placeholder="Enter DNS name" name="dnsname" required><br>
+			<input type="hidden" id="elX" name="elX" value="">
+			<input type="hidden" id="elY" name="elY" value="">
+			<input type="hidden" id="facility" name="facility" value="<%=title%>">
+			<button type="submit" style="margin-left:30px;">Add Asset</button>
+			</form>
+		</div>
 	</div>
+	<div id="assetModal" class="modal" style="display:none">
+		<!-- Modal content -->
+		<div class="modal-content animate">
+			<iframe id="assetFrame" width="100%" src=""></iframe>
+			<form id="deleteAsset" action="deleteAsset" method="POST">
+				<input type="hidden" id="dname" name="dname" value="">
+				<button type="submit" style="margin-left:30px;">Delete</button>
+			</form>
+		</div>
 	</div>
 
   <div class = "row margin">
@@ -49,7 +58,14 @@
 <a href='./report'><button>PULL REPORT</button></a>
 
 <script>
+var modal = document.getElementById('assetModal');
 
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 </script>
 </body>
 

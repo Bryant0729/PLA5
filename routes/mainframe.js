@@ -54,6 +54,17 @@ router.get('/facilities/*',async(req,res,next)=>{
     
 });
 
+router.get('/assets/*',async(req,res,next)=>{
+    try{
+		
+		res.render(path.join('./asset'),{assetname:(req.url).split('/')[2]});
+
+    }catch (e){
+        next(e);
+    }
+    
+});
+
 router.post('/selectFacility',async(req, res,next)=> {
 	try{
 	res.redirect('/facilities/'+req.body.facilities);		
@@ -92,7 +103,6 @@ router.post('*/addAsset',async(req, res,next)=> {
 
 router.post('*/moveAsset',async(req, res,next)=> {
 	try{
-		console.log(req.url);
 		console.log(req.body.dnsname+","+req.body.elX+","+req.body.elY);
 		let asset= new Asset(req.body.dnsname,req.body.elX,req.body.elY,req.body.facility);
 		let found = undefined;
@@ -117,6 +127,29 @@ router.post('*/moveAsset',async(req, res,next)=> {
 		next(e);
 	}
 });
+
+router.post('*/deleteAsset',async(req, res,next)=> {
+	try{
+		var p=(req.url).split('/')[2];
+		console.log(p);
+		console.log(req.body.dname);
+		let found = undefined;
+		for(const e of assets){
+				if(e.name===req.body.dname){
+					found=e;
+					assets.delete(found);
+					break;
+				}
+		}
+		
+		addinAssets(function(data){});
+		readinAssets(function(data){});
+		res.redirect('/facilities/'+p+'/');		
+	}catch (e){
+		next(e);
+	}
+});
+
 
 function readinAssets(cb){
 	fs.readFile(rootDir+'/public/facilities/assets.json', (err, data) => {  

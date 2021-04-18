@@ -22,6 +22,7 @@ function dragElement(elmnt) {
 			// get the mouse cursor position at startup:
 			pos3 = e.clientX;
 			pos4 = e.clientY;
+			
 			document.onmouseup = closeDragElement;
 			// call a function whenever the cursor moves:
 			document.onmousemove = elementDrag;
@@ -65,7 +66,7 @@ function dragElement(elmnt) {
 	<img id="blueprint" style="position:absolute; top:0;left:0;" src="blueprint.png">
 	<div id="assetLayer" style="position:relative;">
 		<% for (var i = 0; i < assets.length; i++) { %>
-			<button class="asset" id="<%=assets[i].name%>" style="position:absolute; top:<%=assets[i].y%>; left:<%=assets[i].x%>;"><%=assets[i].name%></button>
+			<button class="asset" id="<%=assets[i].name%>" title="<%=assets[i].name%>" style="position:absolute; top:<%=assets[i].y%>; left:<%=assets[i].x%>;" onclick="displayAsset(<%=assets[i].name%>);"></button>
 			<script>dragElement(document.getElementById("<%=assets[i].name%>"));</script>
 		<% } %>
 	</div>
@@ -91,6 +92,12 @@ function dragElement(elmnt) {
 		 window.parent.document.getElementById('elY').value= document.getElementById('TEMPASSET').style.top
 		 
 	});
+	
+	function displayAsset(aname){
+		window.parent.document.getElementById('assetModal').style.display="block";
+		window.parent.document.getElementById('dname').value=aname.title;
+		window.parent.document.getElementById('assetFrame').src="/assets/"+aname.title;
+	}
 </script>
 </body>
 
