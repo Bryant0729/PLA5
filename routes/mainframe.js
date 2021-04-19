@@ -2,6 +2,8 @@ var express = require('express');
 var path = require('path');
 const fs = require('fs');
 const {readdirSync} = require('fs')
+const mdfData = require('../public/assets/MDF.json');
+const pouData = require('../public/assets/POU.json');
 
 var router = express.Router();
 
@@ -62,7 +64,7 @@ router.get('/facilities/*',async(req,res,next)=>{
     try{
 		var p=(req.url).split('/')[2];
 		if( (req.url).split('/')[3]== "report"){
-			res.render(path.join('./facility/facility'),{title:p});	
+			res.render(path.join('./facility/report'),{title:p, mdfData: mdfData, pouData: pouData});	
 		}
 		if( (req.url).split('/')[3]== "blueprint"){
 			let tempassets=[]
