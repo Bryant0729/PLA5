@@ -64,7 +64,13 @@ router.get('/facilities/*',async(req,res,next)=>{
     try{
 		var p=(req.url).split('/')[2];
 		if( (req.url).split('/')[3]== "report"){
-			res.render(path.join('./facility/report'),{title:p, mdfData: mdfData, pouData: pouData});	
+			const mdfSliced = mdfData['table'].slice(1, 5 + 1);
+			const pouSliced = pouData['table'].slice(1, 5 + 1);
+			const concat = mdfSliced.concat(pouSliced);
+			concat.sort(function(a, b) {
+				return (a.updateTime < b.updateTime) ? -1 : ((a.updateTime > b.updateTime) ? 1 : 0);
+			});
+			res.render(path.join('./facility/report'),{title:p, endpoints: concat});	
 		}
 		if( (req.url).split('/')[3]== "blueprint"){
 			let tempassets=[]
