@@ -38,6 +38,7 @@
 	<div id="assetModal" class="modal" style="display:none">
 		<!-- Modal content -->
 		<div class="modal-content animate">
+		    <div id="infoName" style="color:Black; font-size:25px;"></div>
 			<iframe id="assetFrame" width="100%" src=""></iframe>
 			<form id="deleteAsset" action="deleteAsset" method="POST">
 				<input type="hidden" id="dname" name="dname" value="">
@@ -52,10 +53,10 @@
         <h3 class="titleTxt" id="titleTxt"><%=title%></h3>
       </div>
     </div>
-	<iframe width="90%" height="600" src="./blueprint"></iframe>
+	<iframe width="90%" style="width:100% " frameBorder="0" onload="this.style.height=(this.contentWindow.document.body.scrollHeight+10)+'px';" src="./blueprint"></iframe>
   </div>
 </div>
-<a href='./report'><button>PULL REPORT</button></a>
+<a style="color:black;"href='./report'><button>PULL REPORT</button></a>
 
 <script>
 var modal = document.getElementById('assetModal');

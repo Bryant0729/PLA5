@@ -12,7 +12,30 @@
  
 </head>
 <body>
-	<p><%=assetname%></p>
+	<p style="font-size: 25px;"><%=asset.name%>
+
+	<% if(asset.state=="Offline") { %>
+	<p style="font-size: 25px; color:#FF3333;">STATUS: <%=asset.state%></p>
+	<%}else if(asset.state=="Healthy"){%>
+	<p style="font-size: 25px; color:#4CAF50;">STATUS: <%=asset.state%></p>
+	<%}else if(asset.state=="Unhealthy"){%>
+	<p style="font-size: 25px; color:#F6FF33;">STATUS: <%=asset.state%></p>
+	<%}else{%>
+	<p style="font-size: 25px;">STATUS: <%=asset.state%></p>
+	<%}%>
+	<p style="font-size: 15px;">DATA AS OF <%=asset.updateTime%></p>
+	
+	<p style="font-size: 15px;">IP: <%=asset.ip%></p>
+	<p style="font-size: 15px;">Disk Space: <%=asset.freespace%></p>
+	<p style="font-size: 15px;">Up Time: <%=asset.uptime%> hours</p>
+	<p style="font-size: 15px;">Current User: <%=asset.currentUser%></p>
+	<% if(asset.type=="Laptop") { %>
+	<p style="font-size: 15px;">Battery Percentage: <%=asset.batteryP%></p>
+	<p style="font-size: 15px;">Charging: <%=asset.charging%></p>
+	<%}%>
+	
+	<p style="font-size: 15px;">CPU Usage: <%=asset.cpu%></p>
+	<p style="font-size: 15px;">Ram Usage: <%=asset.ram%></p>
 </body>
 
 

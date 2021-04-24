@@ -96,6 +96,7 @@ function dragElement(elmnt) {
 	function displayAsset(aname){
 		window.parent.document.getElementById('assetModal').style.display="block";
 		window.parent.document.getElementById('dname').value=aname.title;
+		window.parent.document.getElementById('infoName').innerHTML=aname.title;
 		window.parent.document.getElementById('assetFrame').src="/assets/"+aname.title;
 	}
 </script>

@@ -1,1 +1,1 @@
-[{"id":1,"state":"Healthy","name":"POU","x":"665px","y":"398px","facility":"NavarreFSED"},{"id":0,"state":"Healthy","name":"MDF","x":"313px","y":"403px","facility":"NavarreFSED"}]
+[{"id":0,"state":"Offline","name":"MDF","x":"342px","y":"326px","facility":"NavarreFSED"},{"id":1,"state":"Unhealthy","name":"POU","x":"544px","y":"316px","facility":"NavarreFSED"}]

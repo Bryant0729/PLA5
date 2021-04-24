@@ -25,15 +25,17 @@
 <body>
 <div class="container-fluid">
   <div class = "row card-container" >
-    <div class = "col-xs-6 text-center">
+    <div class = "col-xs-12 text-center">
 	<form id="selFac" action="selectFacility" method="POST">
-      <label for "facilities">Choose Facility:</label>
-	  <select name="facilities" id="facilities">
+      <label style="font-size: 40px;" for "facilities">Choose Facility:</label>
+	  <select style="color: black; font-size: 40px; width:70%; height:80px;" name="facilities" id="facilities">
 	  <%for( var i=0;i<numFac;i++){%>
-		<option id="<%=facilities[i]%>"><%=facilities[i]%></td>
+		<option style="font-size: 40px; color: black;" value="<%=facilities[i]%>" id="<%=facilities[i]%>"><%=facilities[i]%></td>
       <%}%>
 	  </select>
-	  <button type="submit" style="margin-left:30px;">Go</button>
+	  <button type="submit" style="font-size: 30px; width:15%;margin-left:30px;">Go</button>
+	  
+	  <img src="./images/yourlogo.jpg"></img>
     </div>
     </div>
    </div>

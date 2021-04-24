@@ -5,6 +5,8 @@ const {readdirSync} = require('fs')
 const mdfData = require('../public/assets/MDF.json');
 const pouData = require('../public/assets/POU.json');
 
+const fsPromises = fs.promises;
+
 var router = express.Router();
 
 const Asset = class{
@@ -87,8 +89,10 @@ router.get('/facilities/*',async(req,res,next)=>{
 
 router.get('/assets/*',async(req,res,next)=>{
     try{
-		gatherInfo((req.url).split('/')[2],function(){});
-		res.render(path.join('./asset'),{assetname:(req.url).split('/')[2]});
+		const data = await fsPromises.readFile(rootDir + '/public/assets/'+(req.url).split('/')[2]+'.json', 'utf8');
+		let obj = JSON.parse(data);
+        console.log(obj.table[0]);
+		res.render(path.join('./asset'),{asset:obj.table[0]});	
 
     }catch (e){
         next(e);
@@ -204,7 +208,7 @@ function addinAssets(cb){
 
 function gatherInfo(comp,cb){
 		
-		checkForFile(rootDir+"/public/assets/"+comp+".json",function()
+		checkForFile(rootDir+"/public/assets/"+comp+".json",function(err,data)
 		{
 			fs.readFile(rootDir+"/public/assets/"+comp+".json", function (err,data) 
 			{
@@ -254,17 +258,15 @@ function gatherInfo(comp,cb){
 				
 				let obj= JSON.parse(data);
 				obj.table.unshift(ai);
-				console.log(obj.table.length);
-				if(obj.table.size>30){
+				while(obj.table.length>30){
 					obj.table.pop();
 				}
 				json=JSON.stringify(obj, null, 2);
-				fs.writeFile(rootDir+"/public/assets/"+found.name+".json",json,'utf8',cb);
-				
+				fs.writeFile(rootDir+"/public/assets/"+found.name+".json",json,{flag: 'w',encoding:"utf8"},cb);
+				cb(obj.table[0]);
 				
 			});
 		});
-		
 		
 		
 		
@@ -284,6 +286,7 @@ function gatherInfo(comp,cb){
 			
 	
 }
+
 
 function iterFunction(){
 	for(const e of assets){
